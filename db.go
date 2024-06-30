@@ -6,16 +6,16 @@ import (
 	"os"
 )
 
-type DB struct {
-	*pgxpool.Pool
-}
+//type DB struct {
+//	*pgxpool.Pool
+//}
 
-func New() (*DB, error) {
+func New() (*Graft, error) {
 
 	db, err := pgxpool.New(context.Background(), os.Getenv("DATABASE_URL"))
 	if err != nil {
 		panic("Couldn't connect to DB")
 	}
 
-	return &DB{db}, nil
+	return &Graft{db}, nil
 }
